@@ -1,65 +1,39 @@
-import Image from "next/image";
-
+/**
+ * Smoke-test page — Step 1 only.
+ *
+ * Proves the design system is wired correctly:
+ *   - Stone (#D9D2C2) background from <body> in layout.tsx
+ *   - Ink (#1A1814) default text color
+ *   - Fraunces loaded (display) + Inter loaded (body)
+ *   - Oxblood (#6B2A2A) period — the brand mark
+ *   - text-display-xl clamp() responsive scaling
+ *   - tracking-small-cap (0.18em) on the eyebrow
+ *   - .hairline rule via the brand utility
+ *
+ * Replaced in Step 4 with the real Home hero.
+ */
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center px-6">
+      <div className="flex w-full max-w-3xl flex-col items-center text-center">
+        <p className="mb-10 font-body text-xs font-medium uppercase tracking-small-cap text-oxblood">
+          Frederick · Maryland · Est. 2026
+        </p>
+
+        <h1 className="font-display text-display-xl font-medium leading-[0.95] tracking-tight text-ink">
+          SET &amp; DONE<span className="text-oxblood">.</span>
+        </h1>
+
+        <hr className="hairline mt-10 w-24" />
+
+        <p className="mt-10 max-w-md font-display text-xl italic leading-relaxed text-stone-dark">
+          The work that makes the event work.
+        </p>
+
+        <p className="mt-12 font-body text-xs uppercase tracking-small-cap text-stone-dark">
+          Scaffold · Step 1 · Smoke Test
+        </p>
+      </div>
+    </main>
   );
 }
