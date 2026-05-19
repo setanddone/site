@@ -1,16 +1,17 @@
+import Link from "next/link";
+import { Wordmark } from "@/components/brand/wordmark";
+import { Mark } from "@/components/brand/mark";
+import { Hairline } from "@/components/ui/hairline";
+
 /**
- * Smoke-test page — Step 1 only.
+ * Home — placeholder.
  *
- * Proves the design system is wired correctly:
- *   - Stone (#D9D2C2) background from <body> in layout.tsx
- *   - Ink (#1A1814) default text color
- *   - Fraunces loaded (display) + Inter loaded (body)
- *   - Oxblood (#6B2A2A) period — the brand mark
- *   - text-display-xl clamp() responsive scaling
- *   - tracking-small-cap (0.18em) on the eyebrow
- *   - .hairline rule via the brand utility
+ * Step 2 keeps this minimal — Wordmark, Mark, hairline, and a small
+ * Inter line. The real Home hero (full-bleed, Section grid, etc.)
+ * lands in Step 4.
  *
- * Replaced in Step 4 with the real Home hero.
+ * The `/design-system` route renders the full visual catalog of every
+ * Step 2 component. Delete that route before launch.
  */
 export default function Home() {
   return (
@@ -20,18 +21,24 @@ export default function Home() {
           Frederick · Maryland · Est. 2026
         </p>
 
-        <h1 className="font-display text-display-xl font-medium leading-[0.95] tracking-tight text-ink">
-          SET &amp; DONE<span className="text-oxblood">.</span>
-        </h1>
+        <Wordmark size="xl" asHeading />
 
-        <hr className="hairline mt-10 w-24" />
+        <Hairline className="mt-10 max-w-[6rem]" />
 
         <p className="mt-10 max-w-md font-display text-xl italic leading-relaxed text-stone-dark">
           The work that makes the event work.
         </p>
 
-        <p className="mt-12 font-body text-xs uppercase tracking-small-cap text-stone-dark">
-          Scaffold · Step 1 · Smoke Test
+        <Mark size="md" className="mt-16" />
+
+        <p className="mt-8 font-body text-xs uppercase tracking-small-cap text-stone-dark">
+          Site under construction · Step 2 ·{" "}
+          <Link
+            href="/design-system"
+            className="text-ink underline decoration-[0.5px] underline-offset-4 hover:text-oxblood"
+          >
+            Design system
+          </Link>
         </p>
       </div>
     </main>
