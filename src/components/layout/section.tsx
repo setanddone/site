@@ -22,6 +22,8 @@ type Tone = "stone" | "stone-light" | "ink" | "oxblood";
 
 type SectionProps = {
   children: ReactNode;
+  /** Anchor id for in-page navigation (e.g. "community-events"). */
+  id?: string;
   /** Background tone. Defaults to "stone". */
   tone?: Tone;
   /** Render a Stone Dark hairline above the section. */
@@ -60,6 +62,7 @@ const widthClasses: Record<Required<SectionProps>["width"], string> = {
 
 export function Section({
   children,
+  id,
   tone = "stone",
   topRule = false,
   as = "section",
@@ -72,9 +75,12 @@ export function Section({
 
   return (
     <Tag
+      id={id}
       className={cn(
         toneClasses[tone],
         topRule && "border-t-[0.5px] border-rule",
+        // Offset anchored scroll so headings clear the sticky nav.
+        id && "scroll-mt-20 md:scroll-mt-24",
         paddingClasses[padding],
         className,
       )}
