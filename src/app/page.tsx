@@ -15,7 +15,7 @@ import { Hairline } from "@/components/ui/hairline";
  */
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6">
+    <div className="flex min-h-[80vh] flex-col items-center justify-center px-6 py-24">
       <div className="flex w-full max-w-3xl flex-col items-center text-center">
         <p className="mb-10 font-body text-xs font-medium uppercase tracking-small-cap text-oxblood">
           Frederick · Maryland · Est. 2026
@@ -41,6 +41,6 @@ export default function Home() {
           </Link>
         </p>
       </div>
-    </main>
+    </div>
   );
 }

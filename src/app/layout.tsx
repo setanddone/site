@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { Nav } from "@/components/layout/nav";
+import { Footer } from "@/components/layout/footer";
 
 /**
  * Fraunces — the display typeface. Variable serif with a workshop,
@@ -39,8 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-stone text-ink antialiased">
-        {children}
+      <body className="flex min-h-screen flex-col bg-stone text-ink antialiased">
+        <Nav />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
