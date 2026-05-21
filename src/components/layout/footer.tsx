@@ -70,12 +70,23 @@ export function Footer() {
         </div>
 
         {/* Bottom rule */}
-        <div className="mt-16 border-t-[0.5px] border-rule pt-6">
+        <div className="mt-16 flex flex-col gap-3 border-t-[0.5px] border-rule pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-body text-xs uppercase tracking-small-cap-tight text-stone-dark">
             © {BRAND.name} · {CONTACT.city}, {CONTACT.stateAbbr} ·{" "}
             <span className="italic normal-case tracking-normal">
               {BRAND.warmTagline}
             </span>
+          </p>
+          <p className="font-body text-xs uppercase tracking-small-cap-tight text-stone-dark">
+            Operations partner ·{" "}
+            <a
+              href="https://caltraadvisory.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[0.5px] underline-offset-4 transition-colors hover:text-oxblood"
+            >
+              Caltra Advisory
+            </a>
           </p>
         </div>
       </div>
