@@ -63,8 +63,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col bg-stone text-ink antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1 scroll-mt-20">
+          {children}
+        </main>
         <Footer />
         <Analytics />
       </body>

@@ -104,3 +104,48 @@ body {
   height: 0;
   width: 100%;
 }
+
+/* ============================================================
+   Accessibility
+   ============================================================ */
+
+/* Keyboard focus ring — Oxblood, for links and form controls.
+   Buttons carry their own focus-visible styles (incl. cream on dark). */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Skip-to-content link — hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 0.625rem 1rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.875rem;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
