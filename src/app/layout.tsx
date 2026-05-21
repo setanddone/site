@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
+import { BRAND } from "@/lib/site";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? BRAND.url;
 
 /**
  * Fraunces — the display typeface. Variable serif with a workshop,
@@ -29,9 +33,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Set & Done — Event Production in Frederick, MD",
   description:
     "A community-rooted event house producing festivals, markets, milestones, and the occasional wedding. Frederick, Maryland.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Set & Done",
+    url: SITE_URL,
+    title: "Set & Done — Event Production in Frederick, MD",
+    description:
+      "A community-rooted event house producing the moments that make a town feel like a town. Festivals, markets, milestones, and the occasional wedding we couldn't say no to.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Set & Done — Event Production in Frederick, MD",
+    description:
+      "A community-rooted event house producing the moments that make a town feel like a town. Frederick, Maryland.",
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +66,7 @@ export default function RootLayout({
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
