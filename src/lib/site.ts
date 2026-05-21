@@ -29,6 +29,7 @@ export const PRIMARY_CTA = {
 export const CONTACT = {
   email: "kimberly@setanddone.co",
   phoneDisplay: "240 · 483 · 7564",
+  phoneDashed: "240-483-7564",
   phoneDigits: "2404837564",
   phoneHref: "tel:+12404837564",
   city: "Frederick",
