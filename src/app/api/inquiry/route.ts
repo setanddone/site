@@ -54,8 +54,9 @@ export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const firstName = data.name.split(" ")[0];
 
+  // 1. Notify Kimberly — the critical path. If this fails, the inquiry is
+  //    lost, so it's fatal (502 → the form shows "email us directly").
   try {
-    // 1. Notify Kimberly.
     await resend.emails.send({
       from: FROM,
       to: TO,
@@ -74,8 +75,15 @@ export async function POST(request: Request) {
         data.description,
       ].join("\n"),
     });
+  } catch (err) {
+    console.error("[inquiry] notification send failed:", err);
+    return Response.json({ error: "Send failed." }, { status: 502 });
+  }
 
-    // 2. Auto-response to the inquirer.
+  // 2. Auto-response to the inquirer — nice-to-have, NOT critical. Common
+  //    failure: REPLY_FROM's domain isn't verified in Resend yet. Don't
+  //    punish the visitor for it — their inquiry already reached Kimberly.
+  try {
     await resend.emails.send({
       from: REPLY_FROM,
       to: data.email,
@@ -92,10 +100,9 @@ export async function POST(request: Request) {
         "The work that makes the event work.",
       ].join("\n"),
     });
-
-    return Response.json({ success: true });
   } catch (err) {
-    console.error("[inquiry] Resend send failed:", err);
-    return Response.json({ error: "Send failed." }, { status: 502 });
+    console.warn("[inquiry] auto-response failed (non-fatal):", err);
   }
+
+  return Response.json({ success: true });
 }
