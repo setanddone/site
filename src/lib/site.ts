@@ -27,7 +27,7 @@ export const PRIMARY_CTA = {
 
 /** Contact details. Phone stored canonical (digits) + display (spaced). */
 export const CONTACT = {
-  email: "kimberly@setanddone.co",
+  email: "kim@setanddone.co",
   phoneDisplay: "240 · 483 · 7564",
   phoneDashed: "240-483-7564",
   phoneDigits: "2404837564",

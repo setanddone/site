@@ -12,13 +12,13 @@ import { CONTACT } from "@/lib/site";
  * Configuration (env):
  *   RESEND_API_KEY   required — without it the route returns 503 so the
  *                    form shows its "email us directly" fallback.
- *   INQUIRY_TO       optional — defaults to kimberly@setanddone.co
+ *   INQUIRY_TO       optional — defaults to kim@setanddone.co
  *   RESEND_FROM      optional — defaults to "Set & Done <noreply@…>"
  *                    NOTE: the from-domain must be verified in Resend.
  */
 
 const FROM = process.env.RESEND_FROM ?? "Set & Done <noreply@setanddone.co>";
-const REPLY_FROM = "Kimberly Nick <kimberly@setanddone.co>";
+const REPLY_FROM = "Kimberly Nick <kim@setanddone.co>";
 const TO = process.env.INQUIRY_TO ?? CONTACT.email;
 
 function eventTypeLabel(value: string): string {

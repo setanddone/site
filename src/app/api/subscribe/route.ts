@@ -12,7 +12,7 @@ import { CONTACT } from "@/lib/site";
  * Config (env):
  *   RESEND_API_KEY      required (503 without it)
  *   RESEND_AUDIENCE_ID  optional — when set, contacts are added here
- *   INQUIRY_TO          optional — notification recipient (default kimberly@)
+ *   INQUIRY_TO          optional — notification recipient (default kim@)
  *   RESEND_FROM         optional — verified-domain sender
  */
 
